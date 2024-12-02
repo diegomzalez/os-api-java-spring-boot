@@ -12,3 +12,15 @@ services:
       - 27017:27017
     volumes:
       - ./data:/data/db
+  orders-service-mysql-server:
+    container_name: orders-service-mysql-server
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: osdb
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./orders-service/docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql

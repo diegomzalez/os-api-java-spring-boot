@@ -26,8 +26,4 @@ public class ProductsService {
         return this.productsRepository.findAll().stream().map(product -> new FinalProductData(product.getId(),
                 product.getName(), product.getDescription(), product.getPrice())).toList();
     }
-
-    public Optional<FinalProductData> findOneProductData(String id) {
-
-    }
 }
